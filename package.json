@@ -1,6 +1,6 @@
 {
   "name": "@hexlet/code",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "description": "[![Actions Status](https://github.com/ofay11/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/ofay11/frontend-project-44/actions)",
   "main": "index.js",
@@ -19,6 +19,7 @@
     "eslint-plugin-import": "^2.27.5"
   },
   "bin": {
-    "brain-games": "bin/brain-games.js"
+    "brain-games": "bin/brain-games.js",
+    "brain-even": "bin/brain-even.js"
   }
 }
