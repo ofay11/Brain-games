@@ -1,6 +1,6 @@
 {
   "name": "@hexlet/code",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "type": "module",
   "description": "[![Actions Status](https://github.com/ofay11/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/ofay11/frontend-project-44/actions)",
   "main": "index.js",
@@ -10,7 +10,6 @@
   "author": "Timur Dautov",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.21",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
@@ -21,6 +20,8 @@
   "bin": {
     "brain-games": "bin/brain-games.js",
     "brain-even": "bin/brain-even.js",
-    "brain-calc": "bin/brain-calc.js"
+    "brain-calc": "bin/brain-calc.js",
+    "brain-gcd": "bin/brain-gcd.js",
+    "brain-progression": "bin/brain-progression.js"
   }
 }
