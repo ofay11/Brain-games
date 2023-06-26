@@ -17,6 +17,10 @@ make install
 ```
 
 ## Run
+#### One command to launch all brain games
+```bash
+make brain-games
+```
 #### Even game
 ```bash
 make brain-even
