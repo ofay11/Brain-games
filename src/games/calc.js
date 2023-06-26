@@ -3,18 +3,20 @@ import { randomInteger, gameBase } from '../index.js';
 const calcGame = () => {
   const question = 'What is the result of the expression?';
 
-  const calculations = (a, operator, b) => {
-    const operators = {
-      '+': (a, b) => a + b,
-      '-': (a, b) => a - b,
-      '*': (a, b) => a * b,
-    };
-    const operation = operators[operator];
-
-    return operation(a, b);
-  };
-
   const signs = ['+', '-', '*'];
+
+  const calculations = (a, operator, b) => {
+    switch (operator) {
+      case '+':
+        return a + b;
+      case '-':
+        return a - b;
+      case '*':
+        return a * b;
+      default:
+        throw new Error('Invalid operator');
+    }
+  };
 
   // generation of tasks and solutions
   const randomTask = () => {
