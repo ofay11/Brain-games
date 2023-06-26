@@ -9,13 +9,7 @@ export const randomInteger = (min = 1, max = 100) => {
 export const gameBase = (question, randomTask) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
-  const userNameKnown = userName !== '' && userName !== 'no';
-
-  if (userNameKnown) {
-    console.log(`Hello, ${userName}!`);
-  } else {
-    console.log('Hello Mr. Smith!');
-  }
+  console.log(`Hello, ${userName}!`);
 
   console.log(question);
 
@@ -27,21 +21,10 @@ export const gameBase = (question, randomTask) => {
 
     if (userAnswer === String(solution)) {
       console.log('Correct!');
-    } else {
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${solution}".`);
-
-      if (userNameKnown) {
-        console.log(`Let's try again, ${userName}!`);
-      } else {
-        console.log('Let\'s try again!');
-      }
+    } else {console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${solution}".\nLet's try again, ${userName}!`);
       return;
     }
   }
 
-  if (userNameKnown) {
-    console.log(`Congratulations, ${userName}!`);
-  } else {
-    console.log('Congratulations!');
-  }
+  console.log(`Congratulations, ${userName}!`);
 };
