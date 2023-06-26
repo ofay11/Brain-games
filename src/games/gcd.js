@@ -5,12 +5,14 @@ const gcdGame = () => {
 
   // use the euclidean algorithm
   const euclideanAlgorithm = (a, b) => {
-    while (b !== 0) {
-      const remainder = a % b;
-      a = b;
-      b = remainder;
+    let firstValue = a;
+    let secondValue = b;
+    while (secondValue !== 0) {
+      const remainder = firstValue % secondValue;
+      firstValue = secondValue;
+      secondValue = remainder;
     }
-    return a;
+    return firstValue;
   };
 
   const randomTask = () => {
