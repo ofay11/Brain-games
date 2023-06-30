@@ -1,21 +1,22 @@
-import { randomInteger, gameBase } from '../index.js';
+import startGameLoop from '../index.js';
+import generateRandomInt from '../generateRandomInt.js';
 
-const evenGame = () => {
-  const question = 'Answer "yes" if the number is even, otherwise answer "no".';
+const task = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-  // parity check
-  const isEven = (number) => number % 2 === 0;
+// parity check
+const isEven = (number) => number % 2 === 0;
 
-  // generation of tasks and solutions
-  const randomTask = () => {
-    const randomNumber = randomInteger();
-    const solution = isEven(randomNumber) ? 'yes' : 'no';
+// generation of question and solutions
+const generateQuestionSolution = () => {
+  const randomNumber = generateRandomInt();
+  const question = randomNumber;
+  const solution = isEven(randomNumber) ? 'yes' : 'no';
 
-    return [randomNumber, solution];
-  };
-
-  // passing question, task and solution to gameBase
-  gameBase(question, randomTask);
+  return [question, solution];
 };
 
-export default evenGame;
+const startEvenGame = () => {
+  startGameLoop(task, generateQuestionSolution);
+};
+
+export default startEvenGame;

@@ -1,32 +1,39 @@
-import { randomInteger, gameBase } from '../index.js';
+import startGameLoop from '../index.js';
+import generateRandomInt from '../generateRandomInt.js';
 
-const progressionGame = () => {
-  const question = 'What number is missing in the progression?';
+const task = 'What number is missing in the progression?';
 
-  const randomTask = () => {
-    const arrayLength = randomInteger(5, 10);
-    const hiddenElement = randomInteger(0, arrayLength - 1);
-    const firstNumber = randomInteger(1, 100);
-    const progressionValue = randomInteger(2, 100);
+const generateProgression = (arrayLength) => {
+  const arrayNumbers = [];
 
-    const arrayNumbers = [firstNumber];
-    let solution = 0;
+  const firstNumber = generateRandomInt(1, 100);
+  arrayNumbers.push(firstNumber);
 
-    for (let i = 0; i < arrayLength; i += 1) {
-      const nextNumber = arrayNumbers[i] + progressionValue;
-      arrayNumbers.push(nextNumber);
+  const progressionValue = generateRandomInt(2, 100);
 
-      if (i === hiddenElement) {
-        solution = arrayNumbers[i];
-        arrayNumbers[hiddenElement] = '..';
-      }
-    }
-    const task = arrayNumbers.join(' ');
+  for (let i = 0; i < arrayLength; i += 1) {
+    const nextNumber = arrayNumbers[i] + progressionValue;
+    arrayNumbers.push(nextNumber);
+  }
 
-    return [task, solution];
-  };
-
-  gameBase(question, randomTask);
+  return arrayNumbers;
 };
 
-export default progressionGame;
+const generateQuestionSolution = () => {
+  const arrayLength = generateRandomInt(5, 10);
+  const hiddenElement = generateRandomInt(0, arrayLength - 1);
+
+  const progression = generateProgression(arrayLength);
+  const solution = progression[hiddenElement];
+
+  progression[hiddenElement] = '..';
+  const question = progression.join(' ');
+
+  return [question, solution];
+};
+
+const startProgressionGame = () => {
+  startGameLoop(task, generateQuestionSolution);
+};
+
+export default startProgressionGame;

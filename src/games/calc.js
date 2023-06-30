@@ -1,37 +1,37 @@
-import { randomInteger, gameBase } from '../index.js';
+import startGameLoop from '../index.js';
+import generateRandomInt from '../generateRandomInt.js';
 
-const calcGame = () => {
-  const question = 'What is the result of the expression?';
+const task = 'What is the result of the expression?';
 
-  const signs = ['+', '-', '*'];
+const mathOperators = ['+', '-', '*'];
 
-  const calculations = (a, operator, b) => {
-    switch (operator) {
-      case '+':
-        return a + b;
-      case '-':
-        return a - b;
-      case '*':
-        return a * b;
-      default:
-        throw new Error('Invalid operator');
-    }
-  };
-
-  // generation of tasks and solutions
-  const randomTask = () => {
-    const sign = signs[randomInteger(0, 2)];
-    const firstNumber = randomInteger(1, 100);
-    const secondNumber = randomInteger(1, 100);
-
-    const task = `${firstNumber} ${sign} ${secondNumber}`;
-    const solution = calculations(firstNumber, sign, secondNumber);
-
-    return [task, solution];
-  };
-
-  // passing question, task and solution to gameBase
-  gameBase(question, randomTask);
+const calculate = (a, operator, b) => {
+  switch (operator) {
+    case '+':
+      return a + b;
+    case '-':
+      return a - b;
+    case '*':
+      return a * b;
+    default:
+      throw new Error(`Calculation error. Unknown operator: ${operator}`);
+  }
 };
 
-export default calcGame;
+// generation of question and solutions
+const generateQuestionSolution = () => {
+  const getMathOperator = mathOperators[generateRandomInt(0, mathOperators.length - 1)];
+  const getFirstNumber = generateRandomInt(1, 100);
+  const getSecondNumber = generateRandomInt(1, 100);
+
+  const question = `${getFirstNumber} ${getMathOperator} ${getSecondNumber}`;
+  const solution = calculate(getFirstNumber, getMathOperator, getSecondNumber);
+
+  return [question, solution];
+};
+
+const startCalcGame = () => {
+  startGameLoop(task, generateQuestionSolution);
+};
+
+export default startCalcGame;

@@ -1,32 +1,31 @@
-import { randomInteger, gameBase } from '../index.js';
+import startGameLoop from '../index.js';
+import generateRandomInt from '../generateRandomInt.js';
 
-const gcdGame = () => {
-  const question = 'Find the greatest common divisor of given numbers.';
+const task = 'Find the greatest common divisor of given numbers.';
 
-  // use the euclidean algorithm
-  const euclideanAlgorithm = (a, b) => {
-    let firstValue = a;
-    let secondValue = b;
-    while (secondValue !== 0) {
-      const remainder = firstValue % secondValue;
-      firstValue = secondValue;
-      secondValue = remainder;
-    }
-    return firstValue;
-  };
-
-  const randomTask = () => {
-    const firstNumber = randomInteger(1, 100);
-    const secondNumber = randomInteger(1, 100);
-
-    const task = `${firstNumber} ${secondNumber}`;
-    const solution = euclideanAlgorithm(firstNumber, secondNumber);
-
-    return [task, solution];
-  };
-
-  // passing question, task and solution to gameBase
-  gameBase(question, randomTask);
+const euclideanAlgorithm = (a, b) => {
+  let firstValue = a;
+  let secondValue = b;
+  while (secondValue !== 0) {
+    const remainder = firstValue % secondValue;
+    firstValue = secondValue;
+    secondValue = remainder;
+  }
+  return firstValue;
 };
 
-export default gcdGame;
+const generateQuestionSolution = () => {
+  const firstNumber = generateRandomInt(1, 100);
+  const secondNumber = generateRandomInt(1, 100);
+
+  const question = `${firstNumber} ${secondNumber}`;
+  const solution = euclideanAlgorithm(firstNumber, secondNumber);
+
+  return [question, solution];
+};
+
+const startGcdGame = () => {
+  startGameLoop(task, generateQuestionSolution);
+};
+
+export default startGcdGame;
