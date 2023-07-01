@@ -4,19 +4,19 @@ import generateRandomInt from '../generateRandomInt.js';
 const task = 'What number is missing in the progression?';
 
 const generateProgression = (arrayLength) => {
-  const arrayNumbers = [];
+  const arrayProgression = [];
 
-  const firstNumber = generateRandomInt(1, 100);
-  arrayNumbers.push(firstNumber);
+  const firstRandomNumber = generateRandomInt(1, 100);
+  arrayProgression.push(firstRandomNumber);
 
-  const progressionValue = generateRandomInt(2, 100);
+  const randomProgressionValue = generateRandomInt(2, 100);
 
   for (let i = 0; i < arrayLength; i += 1) {
-    const nextNumber = arrayNumbers[i] + progressionValue;
-    arrayNumbers.push(nextNumber);
+    const nextNumber = arrayProgression[i] + randomProgressionValue;
+    arrayProgression.push(nextNumber);
   }
 
-  return arrayNumbers;
+  return arrayProgression;
 };
 
 const generateQuestionSolution = () => {

@@ -20,12 +20,12 @@ const calculate = (a, operator, b) => {
 
 // generation of question and solutions
 const generateQuestionSolution = () => {
-  const getMathOperator = mathOperators[generateRandomInt(0, mathOperators.length - 1)];
-  const getFirstNumber = generateRandomInt(1, 100);
-  const getSecondNumber = generateRandomInt(1, 100);
+  const randomMathOperator = mathOperators[generateRandomInt(0, mathOperators.length - 1)];
+  const firstRandomNumber = generateRandomInt(1, 100);
+  const secondRandomNumber = generateRandomInt(1, 100);
 
-  const question = `${getFirstNumber} ${getMathOperator} ${getSecondNumber}`;
-  const solution = calculate(getFirstNumber, getMathOperator, getSecondNumber);
+  const question = `${firstRandomNumber} ${randomMathOperator} ${secondRandomNumber}`;
+  const solution = calculate(firstRandomNumber, randomMathOperator, secondRandomNumber);
 
   return [question, solution];
 };

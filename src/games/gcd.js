@@ -15,11 +15,11 @@ const euclideanAlgorithm = (a, b) => {
 };
 
 const generateQuestionSolution = () => {
-  const firstNumber = generateRandomInt(1, 100);
-  const secondNumber = generateRandomInt(1, 100);
+  const firstRandomNumber = generateRandomInt(1, 100);
+  const secondRandomNumber = generateRandomInt(1, 100);
 
-  const question = `${firstNumber} ${secondNumber}`;
-  const solution = euclideanAlgorithm(firstNumber, secondNumber);
+  const question = `${firstRandomNumber} ${secondRandomNumber}`;
+  const solution = euclideanAlgorithm(firstRandomNumber, secondRandomNumber);
 
   return [question, solution];
 };
