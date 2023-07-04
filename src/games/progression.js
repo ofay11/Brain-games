@@ -3,15 +3,10 @@ import generateRandomInt from '../generateRandomInt.js';
 
 const task = 'What number is missing in the progression?';
 
-const generateProgression = (arrayLength) => {
-  const arrayProgression = [];
+const generateProgression = (lengthProgression, randomProgressionValue) => {
+  const arrayProgression = [randomProgressionValue];
 
-  const firstRandomNumber = generateRandomInt(1, 100);
-  arrayProgression.push(firstRandomNumber);
-
-  const randomProgressionValue = generateRandomInt(2, 100);
-
-  for (let i = 0; i < arrayLength; i += 1) {
+  for (let i = 0; i < lengthProgression; i += 1) {
     const nextNumber = arrayProgression[i] + randomProgressionValue;
     arrayProgression.push(nextNumber);
   }
@@ -20,14 +15,15 @@ const generateProgression = (arrayLength) => {
 };
 
 const generateQuestionSolution = () => {
-  const arrayLength = generateRandomInt(5, 10);
-  const hiddenElement = generateRandomInt(0, arrayLength - 1);
+  const lengthProgression = generateRandomInt(5, 10);
+  const randomProgressionValue = generateRandomInt(2, 100);
+  const generatedProgression = generateProgression(lengthProgression, randomProgressionValue);
 
-  const progression = generateProgression(arrayLength);
-  const solution = progression[hiddenElement];
+  const hiddenElement = generateRandomInt(0, generatedProgression.length - 1);
+  const solution = generatedProgression[hiddenElement];
+  generatedProgression[hiddenElement] = '..';
 
-  progression[hiddenElement] = '..';
-  const question = progression.join(' ');
+  const question = generatedProgression.join(' ');
 
   return [question, solution];
 };
