@@ -3,7 +3,7 @@ import generateRandomInt from '../generateRandomInt.js';
 
 const task = 'Find the greatest common divisor of given numbers.';
 
-const euclideanAlgorithm = (a, b) => {
+const findGcd = (a, b) => {
   let firstValue = a;
   let secondValue = b;
   while (secondValue !== 0) {
@@ -19,7 +19,7 @@ const generateQuestionSolution = () => {
   const secondRandomNumber = generateRandomInt(1, 100);
 
   const question = `${firstRandomNumber} ${secondRandomNumber}`;
-  const solution = euclideanAlgorithm(firstRandomNumber, secondRandomNumber);
+  const solution = findGcd(firstRandomNumber, secondRandomNumber);
 
   return [question, solution];
 };
