@@ -1,9 +1,9 @@
 import readlineSync from 'readline-sync';
+import greetUser from './cli.js';
 
 export default (task, generateQuestionSolution) => {
-  console.log('Welcome to the Brain Games!');
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
+  // Getting the username. Greet the user only if we haven't done so before
+  const userName = greetUser();
 
   console.log(task);
 
