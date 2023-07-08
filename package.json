@@ -1,6 +1,6 @@
 {
   "name": "@hexlet/code",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "type": "module",
   "description": "Brain Games is a set of five console games",
   "main": "index.js",
